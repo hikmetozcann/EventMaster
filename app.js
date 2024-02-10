@@ -4,7 +4,14 @@ import logger from 'morgan';
 
 import indexRouter from './routes/index.js';
 import NotFoundResponse from './utils/DefaultHttpResponses.js';
-
+import sequelize from './utils/database.js';
+sequelize.authenticate()
+  .then(() => {
+    console.log('Database connection established successfully.');   
+  })
+  .catch(err => {
+    console.error('Failed to establish database connection:', err);
+  });
 var app = express();
 
 app.use(logger('dev'));
