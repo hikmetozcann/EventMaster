@@ -4,6 +4,12 @@ const NotFoundResponse = {
     message: 'Route not found'
 }
 
+const ErrorResponse = (error) => {
+    return {
+        status: false,
+        message: error
+    }
+}
 
 
-export default NotFoundResponse;
+export default { NotFoundResponse, ErrorResponse };

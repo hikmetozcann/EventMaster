@@ -1,36 +1,50 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../utils/database.js'; 
 
-class Users extends Model {}
+class Event extends Model {}
 
-Users.init({
+Event.init({
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
     allowNull: false,
   },
-  username: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  password: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  role: {
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+  time: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  location: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  participantLimit: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  },
+  category: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  userId: {
+    type: DataTypes.UUID,
+    references: {
+      model: 'Users',
+      key: 'id',
+    },
   },
 }, {
   sequelize,
-  modelName: 'Users',
+  modelName: 'Event',
 });
 
-export default Users;
+export default Event;
+
