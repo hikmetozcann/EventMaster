@@ -14,10 +14,13 @@
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "mysql2": "^3.9.1",
-    "sequelize": "^6.36.0"
+    "sequelize": "^6.36.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
-    "eslint-plugin-import": "^2.29.1"
+    "eslint-plugin-import": "^2.29.1",
+    "swagger-autogen": "^2.23.7"
   }
 }
