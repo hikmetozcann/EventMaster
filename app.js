@@ -6,7 +6,6 @@ import swaggerDocument from './swagger-output.json' assert { type: "json" };
 import swaggerUi from 'swagger-ui-express';
 
 import indexRouter from './routes/index.js';
-import authRouter from './routes/auth.js';
 import NotFoundResponse from './utils/DefaultHttpResponses.js';
 import sequelize from './utils/database.js';
 
@@ -25,9 +24,9 @@ app.use(cookieParser());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use('/index', indexRouter);
-app.use('/auth', authRouter);
-app.use(authenticateToken)
+app.use('/', indexRouter);
+// app.use('/auth', authRouter);
+// app.use('/events', eventsRouter);
 
 
 

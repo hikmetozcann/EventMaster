@@ -26,7 +26,7 @@ async function login(req, res) {
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(400).send("Invalid credentials");
     }
-    const token = jwt.sign({ userId: user.id }, process.env.AUTH_SECRET_KEY, {
+    const token = jwt.sign({ userId: user.id, userRole:user.role, userEmail: user.email }, process.env.AUTH_SECRET_KEY, {
         expiresIn: "24h",
     });
     res.status(200).json({ token });
